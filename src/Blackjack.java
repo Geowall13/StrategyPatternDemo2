@@ -31,14 +31,16 @@ public class Blackjack implements CasinoGame{
             }
         }
 
-        playersAces = 0;
-
         if (totalValueOf(playersCards,false)>totalValueOf(houseCards,true)) {
             return money*2;
         }
         else if (totalValueOf(playersCards,false)==totalValueOf(houseCards,true)) {
             return money;
         }
+
+        playersAces = 0;
+        housesAces = 0;
+
         return 0;
     }
 
