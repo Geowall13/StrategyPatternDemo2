@@ -12,6 +12,8 @@ public class Blackjack implements CasinoGame{
     @Override
     public double playGame(double money) {
 
+        shuffleDeck();
+
         ArrayList<Integer> playersCards = new ArrayList<>();
         ArrayList<Integer> houseCards = new ArrayList<>();
 
@@ -37,10 +39,6 @@ public class Blackjack implements CasinoGame{
         else if (totalValueOf(playersCards,false)==totalValueOf(houseCards,true)) {
             return money;
         }
-
-        playersAces = 0;
-        housesAces = 0;
-
         return 0;
     }
 
@@ -112,5 +110,15 @@ public class Blackjack implements CasinoGame{
             }
         }
         return totalValue;
+    }
+
+    private void shuffleDeck() {
+        hearts=new HashSet<>();
+        spades=new HashSet<>();
+        clovers=new HashSet<>();
+        diamonds=new HashSet<>();
+
+        playersAces = 0;
+        housesAces = 0;
     }
 }
